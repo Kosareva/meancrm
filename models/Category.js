@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-
+/**
+ * CategorySchema schema
+ * @constructor Category
+ */
 const categorySchema = new Schema({
     name: {
         type: String,

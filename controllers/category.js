@@ -36,7 +36,12 @@ module.exports.remove = async function (req, res) {
 
 module.exports.create = async function (req, res) {
     try {
-
+        const category = await new Category({
+            name: req.body.name,
+            user: req.user.id,
+            imageSrc: req.file ? req.file.path : '',
+        }).save();
+        res.status(201).json(category);
     } catch (e) {
         errorHandler(res, e);
     }
@@ -44,7 +49,21 @@ module.exports.create = async function (req, res) {
 
 module.exports.update = async function (req, res) {
     try {
-
+        /**
+         * @type Category
+         */
+        const updated = {
+            name: req.body.name
+        };
+        if (req.file) {
+            updated.imageSrc = req.file.path;
+        }
+        const category = await Category.findByIdAndUpdate(
+            req.params.id,
+            {$set: updated},
+            {new: true}
+        );
+        res.status(201).json(category);
     } catch (e) {
         errorHandler(res, e);
     }
