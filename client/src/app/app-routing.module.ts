@@ -4,7 +4,7 @@ import {AuthLayoutComponent} from "./shared/layouts/auth-layout/auth-layout.comp
 import {SiteLayoutComponent} from "./shared/layouts/site-layout/site-layout.component";
 import {LoginPageComponent} from "./login-page/login-page.component";
 import {RegisterPageComponent} from "./register-page/register-page.component";
-import {RoutesAliases} from "./common/RoutesAliases";
+import {RoutesAliases} from "./common/enums/RoutesAliases.enum";
 
 const routes: Routes = [
   {
