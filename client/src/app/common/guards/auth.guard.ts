@@ -8,9 +8,9 @@ import {
 } from "@angular/router";
 import {Observable, of} from "rxjs";
 import {Injectable} from "@angular/core";
-import {AuthService} from "../services/auth.service";
-import {routesAliases} from "../common/enums/routesAliases.enum";
-import {activatedRouteQueryParams} from "../common/constants/activatedRouteQueryParams";
+import {AuthService} from "../../core/auth/auth.service";
+import {routesAliases} from "../enums/routesAliases";
+import {activatedRouteQueryParams} from "../constants/activatedRouteQueryParams";
 
 @Injectable({providedIn: "root"})
 export class AuthGuard implements CanActivate, CanActivateChild {

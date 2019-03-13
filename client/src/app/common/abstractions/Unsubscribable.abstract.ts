@@ -1,6 +1,6 @@
 import {Subject} from "rxjs";
 import {OnDestroy} from "@angular/core";
-import {Unsubscribable} from "../types/Unsubscribable.interface";
+import {Unsubscribable} from "../types/Unsubscribable";
 
 export abstract class UnsubscribableAbstract implements OnDestroy, Unsubscribable {
 

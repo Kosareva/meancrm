@@ -1,4 +1,4 @@
-import {routesAliases} from "../enums/routesAliases.enum";
+import {routesAliases} from "../enums/routesAliases";
 
 export const activatedRouteQueryParams = {
   [routesAliases.LOGIN]: {

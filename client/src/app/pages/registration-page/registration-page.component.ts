@@ -1,12 +1,12 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../services/auth.service";
-import {User, UserCredentials} from "../../services/rest/model";
-import {Unsubscribable} from "../../common/types/Unsubscribable.interface";
+import {AuthService} from "../../core/auth/auth.service";
+import {User, UserCredentials} from "../../core/rest/model";
+import {Unsubscribable} from "../../common/types/Unsubscribable";
 import {Subject} from "rxjs";
 import {takeUntil} from "rxjs/operators";
 import {Router} from '@angular/router';
-import {routesAliases} from "../../common/enums/routesAliases.enum";
+import {routesAliases} from "../../common/enums/routesAliases";
 import {activatedRouteQueryParams} from "../../common/constants/activatedRouteQueryParams";
 
 @Component({
