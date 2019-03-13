@@ -1,21 +1,22 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
 import {AuthLayoutComponent} from "./shared/layouts/auth-layout/auth-layout.component";
 import {SiteLayoutComponent} from "./shared/layouts/site-layout/site-layout.component";
-import {LoginPageComponent} from "./login-page/login-page.component";
-import {RegisterPageComponent} from "./register-page/register-page.component";
-import {RoutesAliases} from "./common/enums/RoutesAliases.enum";
+import {LoginPageComponent} from "./pages/login-page/login-page.component";
+import {RegistrationPageComponent} from "./pages/registration-page/registration-page.component";
+import {routesAliases} from "./common/enums/routesAliases.enum";
+import {AuthGuard} from "./guards/auth.guard";
 
 const routes: Routes = [
   {
     path: '', component: AuthLayoutComponent, children: [
-      {path: '', redirectTo: RoutesAliases.LOGIN, pathMatch: 'full'},
-      {path: RoutesAliases.LOGIN, component: LoginPageComponent},
-      {path: RoutesAliases.REGISTER, component: RegisterPageComponent}
+      {path: '', redirectTo: routesAliases.LOGIN, pathMatch: 'full'},
+      {path: routesAliases.LOGIN, component: LoginPageComponent},
+      {path: routesAliases.REGISTER, component: RegistrationPageComponent}
     ]
   },
   {
-    path: '', component: SiteLayoutComponent, children: []
+    path: '', component: SiteLayoutComponent, canActivate: [AuthGuard], children: []
   },
 ];
 

@@ -1,3 +1,3 @@
-export abstract class Routable {
+export abstract class RoutableAbstract {
 
 }

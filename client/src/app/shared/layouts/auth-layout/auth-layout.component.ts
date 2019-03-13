@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RoutesAliases} from 'src/app/common/enums/RoutesAliases.enum';
+import {routesAliases} from 'src/app/common/enums/routesAliases.enum';
 
 @Component({
   selector: 'app-auth-layout',
@@ -8,9 +8,10 @@ import {RoutesAliases} from 'src/app/common/enums/RoutesAliases.enum';
 })
 export class AuthLayoutComponent implements OnInit {
 
-  readonly RoutesAliases: typeof RoutesAliases = RoutesAliases;
+  readonly routesAliases: typeof routesAliases = routesAliases;
 
   constructor() {
+    console.log('AUTH LAYOUT called');
   }
 
   ngOnInit() {

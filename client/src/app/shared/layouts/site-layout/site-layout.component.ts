@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-site-layout',
@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SiteLayoutComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    console.log('SITE LAYOUT called');
+  }
 
   ngOnInit() {
   }
