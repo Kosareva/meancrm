@@ -1,0 +1,60 @@
+<div class="page-title">
+  <h4>
+    <a [routerLink]="['/',routesAliases.CATEGORIES]">Categories</a>
+    <i class="material-icons">keyboard_arrow_right</i>
+    {{isNew ? 'Add' : 'Edit'}} category
+  </h4>
+  <span>
+            <button class="btn btn-small red">
+              <i class="material-icons">delete</i>
+            </button>
+          </span>
+</div>
+
+<div class="row">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="col s12 l6">
+    <div class="input-field">
+      <input
+        [formControlName]="formControls.NAME"
+        [ngClass]="displayFieldCss(formControls.NAME)"
+        id="name"
+        type="text">
+      <label for="name">Name</label>
+      <app-field-error-display
+        *ngIf="isFieldHasError(formControls.NAME, 'required')"
+        errorMsg="Name required"
+      >
+      </app-field-error-display>
+      <app-field-error-display
+        *ngIf="isFieldHasError(formControls.NAME, 'minlength')"
+        errorMsg="Min length 3"
+      >
+      </app-field-error-display>
+    </div>
+    <div>
+      <button
+        type="button"
+        class="waves-effect waves-light btn orange lighten-2 mb2"
+      >
+        <i class="material-icons left">backup</i>
+        Upload an image
+      </button>
+    </div>
+
+    <div>
+      <button
+        type="submit"
+        class="waves-effect waves-light btn"
+        [disabled]="form.invalid || form.disabled"
+      >
+        Save
+      </button>
+    </div>
+  </form>
+
+  <div class="col s12 l4 center">
+    <img class="responsive-img" style="height: 200px" src="cake.jpg">
+  </div>
+</div>
+
+<!--<app-positions-form></app-positions-form>-->

@@ -14,4 +14,8 @@ export class CategoriesRestService {
   categoryCollectionResourceGet(): Observable<Category[]> {
     return this.http.get<Category[]>('api/category');
   }
+
+  categoryResourceGet(id: string): Observable<Category> {
+    return this.http.get<Category>(`api/category/${id}`);
+  }
 }

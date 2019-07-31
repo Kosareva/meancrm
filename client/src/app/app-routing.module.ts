@@ -11,6 +11,8 @@ import {CategoriesPageComponent} from "./pages/categories-page/categories-page.c
 import {OrderPageComponent} from "./pages/order-page/order-page.component";
 import {HistoryPageComponent} from "./pages/history-page/history-page.component";
 import {AnalyticsPageComponent} from "./pages/analytics-page/analytics-page.component";
+import {CategoriesFormComponent} from "./pages/categories-page/categories-form/categories-form.component";
+import {routesParams} from "./common/enums/routesParams";
 
 const routes: Routes = [
   {
@@ -27,6 +29,8 @@ const routes: Routes = [
       {path: routesAliases.HISTORY, component: HistoryPageComponent,},
       {path: routesAliases.ORDER, component: OrderPageComponent,},
       {path: routesAliases.CATEGORIES, component: CategoriesPageComponent,},
+      {path: `${routesAliases.CATEGORIES}/${routesAliases.NEW}`, component: CategoriesFormComponent,},
+      {path: `${routesAliases.CATEGORIES}/:${routesParams.ID}`, component: CategoriesFormComponent,},
     ]
   },
 ];
