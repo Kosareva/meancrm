@@ -11,6 +11,11 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "./common/interceptors/tocken.interceptor";
 import { OverviewPageComponent } from './pages/overview-page/overview-page.component';
+import { AnalyticsPageComponent } from './pages/analytics-page/analytics-page.component';
+import { HistoryPageComponent } from './pages/history-page/history-page.component';
+import { OrderPageComponent } from './pages/order-page/order-page.component';
+import { CategoriesPageComponent } from './pages/categories-page/categories-page.component';
+import { LoaderComponent } from './shared/ui-components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +25,11 @@ import { OverviewPageComponent } from './pages/overview-page/overview-page.compo
     LoginPageComponent,
     RegistrationPageComponent,
     OverviewPageComponent,
+    AnalyticsPageComponent,
+    HistoryPageComponent,
+    OrderPageComponent,
+    CategoriesPageComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,13 +3,14 @@ import {routesAliases} from "../../../common/enums/routesAliases";
 import {AuthService} from "../../../core/auth/auth.service";
 import {Router} from "@angular/router";
 import {MaterialService} from "../../../common/services/material.service";
+import {BaseComponent} from "../../../common/abstractions/BaseComponent.abstract";
 
 @Component({
   selector: 'app-site-layout',
   templateUrl: './site-layout.component.html',
   styleUrls: ['./site-layout.component.scss']
 })
-export class SiteLayoutComponent implements AfterViewInit {
+export class SiteLayoutComponent extends BaseComponent implements AfterViewInit {
 
   @ViewChild('floating', {static: true}) floatingRef: ElementRef;
 
@@ -32,7 +33,7 @@ export class SiteLayoutComponent implements AfterViewInit {
     },
     {
       url: `/${routesAliases.CATEGORIES}`,
-      name: 'Stock'
+      name: 'Categories'
     },
   ];
 
@@ -40,6 +41,7 @@ export class SiteLayoutComponent implements AfterViewInit {
     private authService: AuthService,
     private router: Router,
   ) {
+    super();
     console.log('SITE LAYOUT called');
   }
 

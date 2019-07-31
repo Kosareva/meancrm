@@ -8,15 +8,15 @@ import {takeUntil} from "rxjs/operators";
 import {Router} from '@angular/router';
 import {routesAliases} from "../../common/enums/routesAliases";
 import {activatedRouteQueryParams} from "../../common/constants/activatedRouteQueryParams";
+import {BaseComponent} from "../../common/abstractions/BaseComponent.abstract";
 
 @Component({
   selector: 'app-register-form',
   templateUrl: './registration-page.component.html',
   styleUrls: ['./registration-page.component.scss']
 })
-export class RegistrationPageComponent implements OnInit, OnDestroy, Unsubscribable {
+export class RegistrationPageComponent extends BaseComponent implements OnInit, OnDestroy, Unsubscribable {
 
-  unsubscribe = new Subject<void>();
   readonly registrationFormControls: any = {
     EMAIL: 'email',
     PASSWORD: 'password',
@@ -28,6 +28,7 @@ export class RegistrationPageComponent implements OnInit, OnDestroy, Unsubscriba
     private authService: AuthService,
     private router: Router,
   ) {
+    super();
   }
 
   ngOnInit() {
@@ -35,11 +36,6 @@ export class RegistrationPageComponent implements OnInit, OnDestroy, Unsubscriba
       [this.registrationFormControls.EMAIL]: new FormControl(null, [Validators.required, Validators.email]),
       [this.registrationFormControls.PASSWORD]: new FormControl(null, [Validators.required, Validators.minLength(6)]),
     });
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe.next();
-    this.unsubscribe.complete();
   }
 
   onSubmit() {

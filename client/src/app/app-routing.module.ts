@@ -7,6 +7,10 @@ import {RegistrationPageComponent} from "./pages/registration-page/registration-
 import {routesAliases} from "./common/enums/routesAliases";
 import {AuthGuard} from "./common/guards/auth.guard";
 import {OverviewPageComponent} from "./pages/overview-page/overview-page.component";
+import {CategoriesPageComponent} from "./pages/categories-page/categories-page.component";
+import {OrderPageComponent} from "./pages/order-page/order-page.component";
+import {HistoryPageComponent} from "./pages/history-page/history-page.component";
+import {AnalyticsPageComponent} from "./pages/analytics-page/analytics-page.component";
 
 const routes: Routes = [
   {
@@ -18,9 +22,11 @@ const routes: Routes = [
   },
   {
     path: '', component: SiteLayoutComponent, canActivate: [AuthGuard], children: [
-      {
-        path: routesAliases.OVERVIEW, component: OverviewPageComponent,
-      }
+      {path: routesAliases.OVERVIEW, component: OverviewPageComponent,},
+      {path: routesAliases.ANALYTICS, component: AnalyticsPageComponent,},
+      {path: routesAliases.HISTORY, component: HistoryPageComponent,},
+      {path: routesAliases.ORDER, component: OrderPageComponent,},
+      {path: routesAliases.CATEGORIES, component: CategoriesPageComponent,},
     ]
   },
 ];

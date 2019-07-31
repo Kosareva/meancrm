@@ -1,23 +1,21 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../core/auth/auth.service";
 import {LoginResponse, UserCredentials} from "../../core/rest/model";
-import {Unsubscribable} from "../../common/types/Unsubscribable";
-import {Subject} from "rxjs";
 import {takeUntil} from "rxjs/operators";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {routesAliases} from "../../common/enums/routesAliases";
 import {activatedRouteQueryParams} from "../../common/constants/activatedRouteQueryParams";
 import {MaterialService} from "../../common/services/material.service";
+import {BaseComponent} from "../../common/abstractions/BaseComponent.abstract";
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
-export class LoginPageComponent implements OnInit, OnDestroy, Unsubscribable {
+export class LoginPageComponent extends BaseComponent implements OnInit {
 
-  unsubscribe = new Subject<void>();
   readonly loginFormControls: any = {
     EMAIL: 'email',
     PASSWORD: 'password',
@@ -30,6 +28,7 @@ export class LoginPageComponent implements OnInit, OnDestroy, Unsubscribable {
     private route: ActivatedRoute,
     private router: Router,
   ) {
+    super();
   }
 
   ngOnInit() {
@@ -46,16 +45,11 @@ export class LoginPageComponent implements OnInit, OnDestroy, Unsubscribable {
         if (params[activatedRouteQueryParams[routesAliases.LOGIN].REGISTERED]) {
           MaterialService.toast('Now you can login');
         } else if (params[activatedRouteQueryParams[routesAliases.LOGIN].ACCESS_DENIED]) {
-          MaterialService.toast('First you need to authorize');
+          MaterialService.toast('You need to authorize');
         } else if (params[activatedRouteQueryParams[routesAliases.LOGIN].SESSION_FAILED]) {
           MaterialService.toast('Please, reauthorize');
         }
       })
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscribe.next();
-    this.unsubscribe.complete();
   }
 
   onSubmit() {

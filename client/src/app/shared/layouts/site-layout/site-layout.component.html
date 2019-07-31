@@ -14,7 +14,15 @@
     <i class="large material-icons">add</i>
   </a>
   <ul>
-    <li><a class="btn-floating green"><i class="material-icons">assignment</i></a></li>
-    <li><a class="btn-floating blue"><i class="material-icons">list</i></a></li>
+    <li>
+      <a [routerLink]="['/', routesAliases.ORDER]" class="btn-floating green">
+        <i class="material-icons">assignment</i>
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/', routesAliases.CATEGORIES, routesAliases.NEW]" class="btn-floating blue">
+        <i class="material-icons">list</i>
+      </a>
+    </li>
   </ul>
 </div>

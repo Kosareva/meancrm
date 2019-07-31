@@ -1,17 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {routesAliases} from 'src/app/common/enums/routesAliases';
+import {BaseComponent} from "../../../common/abstractions/BaseComponent.abstract";
 
 @Component({
   selector: 'app-auth-layout',
   templateUrl: './auth-layout.component.html',
   styleUrls: ['./auth-layout.component.scss']
 })
-export class AuthLayoutComponent implements OnInit {
-
-  readonly routesAliases: typeof routesAliases = routesAliases;
+export class AuthLayoutComponent extends BaseComponent implements OnInit {
 
   constructor() {
-    console.log('AUTH LAYOUT called');
+    super();
   }
 
   ngOnInit() {
