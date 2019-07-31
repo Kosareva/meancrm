@@ -44,9 +44,11 @@ export class LoginPageComponent implements OnInit, OnDestroy, Unsubscribable {
       )
       .subscribe((params: Params) => {
         if (params[activatedRouteQueryParams[routesAliases.LOGIN].REGISTERED]) {
-          // Now you can login
+          MaterialService.toast('Now you can login');
         } else if (params[activatedRouteQueryParams[routesAliases.LOGIN].ACCESS_DENIED]) {
-          // Please authorize
+          MaterialService.toast('First you need to authorize');
+        } else if (params[activatedRouteQueryParams[routesAliases.LOGIN].SESSION_FAILED]) {
+          MaterialService.toast('Please, reauthorize');
         }
       })
   }
@@ -62,12 +64,13 @@ export class LoginPageComponent implements OnInit, OnDestroy, Unsubscribable {
       .pipe(
         takeUntil(this.unsubscribe)
       )
-      .subscribe(
-        (loginRto: LoginResponse) => {
-          console.log('LOGIN RTO', loginRto);
-          this.router.navigate([`/${routesAliases.OVERVIEW}`]);
-        },
-        e => {
+      .subscribe((loginRto: LoginResponse) => {
+          this.router.navigate([`/${routesAliases.OVERVIEW}`])
+            .catch((e) => {
+              console.log(e);
+              this.form.enable();
+            });
+        }, e => {
           console.error(e);
           // TODO: handle error with error handler
           MaterialService.toast(e.error.message);

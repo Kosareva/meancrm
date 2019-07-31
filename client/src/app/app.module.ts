@@ -10,6 +10,7 @@ import {RegistrationPageComponent} from './pages/registration-page/registration-
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {TokenInterceptor} from "./common/interceptors/tocken.interceptor";
+import { OverviewPageComponent } from './pages/overview-page/overview-page.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {TokenInterceptor} from "./common/interceptors/tocken.interceptor";
     SiteLayoutComponent,
     LoginPageComponent,
     RegistrationPageComponent,
+    OverviewPageComponent,
   ],
   imports: [
     BrowserModule,

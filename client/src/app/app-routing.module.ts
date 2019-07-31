@@ -6,6 +6,7 @@ import {LoginPageComponent} from "./pages/login-page/login-page.component";
 import {RegistrationPageComponent} from "./pages/registration-page/registration-page.component";
 import {routesAliases} from "./common/enums/routesAliases";
 import {AuthGuard} from "./common/guards/auth.guard";
+import {OverviewPageComponent} from "./pages/overview-page/overview-page.component";
 
 const routes: Routes = [
   {
@@ -16,7 +17,11 @@ const routes: Routes = [
     ]
   },
   {
-    path: '', component: SiteLayoutComponent, canActivate: [AuthGuard], children: []
+    path: '', component: SiteLayoutComponent, canActivate: [AuthGuard], children: [
+      {
+        path: routesAliases.OVERVIEW, component: OverviewPageComponent,
+      }
+    ]
   },
 ];
 
