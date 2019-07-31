@@ -32,7 +32,10 @@
       </app-field-error-display>
     </div>
     <div>
+      <input type="file" class="dn" #input (change)="onFileUpload($event)">
       <button
+        (click)="input.click()"
+        [disabled]="form.disabled"
         type="button"
         class="waves-effect waves-light btn orange lighten-2 mb2"
       >
@@ -53,7 +56,11 @@
   </form>
 
   <div class="col s12 l4 center">
-    <img class="responsive-img" style="height: 200px" src="cake.jpg">
+    <img
+      *ngIf="imagePreview"
+      class="responsive-img h-200"
+      [src]="imagePreview"
+    >
   </div>
 </div>
 

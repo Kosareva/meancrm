@@ -1,3 +1,3 @@
 export enum CategoriesFormControls {
-  NAME = 'name,'
+  NAME = 'name'
 }
