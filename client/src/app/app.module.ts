@@ -19,6 +19,8 @@ import { LoaderComponent } from './shared/ui-components/loader/loader.component'
 import { CategoriesFormComponent } from './pages/categories-page/categories-form/categories-form.component';
 import { PositionsFormComponent } from './pages/categories-page/categories-form/positions-form/positions-form.component';
 import { FieldErrorDisplayComponent } from './shared/ui-components/field-error-display/field-error-display.component';
+import { OrderCategoriesComponent } from './pages/order-page/order-categories/order-categories.component';
+import { OrderPositionsComponent } from './pages/order-page/order-positions/order-positions.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { FieldErrorDisplayComponent } from './shared/ui-components/field-error-d
     CategoriesFormComponent,
     PositionsFormComponent,
     FieldErrorDisplayComponent,
+    OrderCategoriesComponent,
+    OrderPositionsComponent,
   ],
   imports: [
     BrowserModule,
