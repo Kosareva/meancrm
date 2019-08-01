@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {BaseComponent} from "../../../common/abstractions/BaseComponent.abstract";
-import {ActivatedRoute, Params} from "@angular/router";
-import {switchMap, takeUntil} from "rxjs/operators";
+import {ActivatedRoute, Params, Router} from "@angular/router";
+import {switchMap, take, takeUntil} from "rxjs/operators";
 import {routesParams} from "../../../common/enums/routesParams";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CategoriesFormControls} from "./model/CategoriesFormControls";
@@ -13,6 +13,7 @@ import {error} from "selenium-webdriver";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Category} from "../../../core/rest/model/Category";
 import {Observable} from "rxjs";
+import {routesAliases} from "../../../common/enums/routesAliases";
 
 @Component({
   selector: 'app-categories-form',
@@ -34,6 +35,7 @@ export class CategoriesFormComponent extends BaseComponent implements OnInit {
   constructor(
     private categoriesRestService: CategoriesRestService,
     private route: ActivatedRoute,
+    private router: Router,
   ) {
     super();
   }
@@ -70,6 +72,18 @@ export class CategoriesFormComponent extends BaseComponent implements OnInit {
         MaterialService.toast(e.error.message)
       });
 
+  }
+
+  deleteCategory(): void {
+    const decision = window.confirm(`Are you sure you want to remove category ${this.category.name}`);
+    if (decision) {
+      this.categoriesRestService.categoryResourceDelete(this.category._id)
+        .subscribe(
+          resp => MaterialService.toast(resp.message),
+          e => MaterialService.toast(e.error.message),
+          () => this.router.navigate(['/', routesAliases.CATEGORIES])
+        );
+    }
   }
 
   onFileUpload(event: any): void {

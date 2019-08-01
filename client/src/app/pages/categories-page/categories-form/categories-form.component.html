@@ -5,10 +5,10 @@
     {{isNew ? 'Add' : 'Edit'}} category
   </h4>
   <span>
-            <button class="btn btn-small red">
-              <i class="material-icons">delete</i>
-            </button>
-          </span>
+    <button class="btn btn-small red" *ngIf="!isNew" (click)="deleteCategory()">
+      <i class="material-icons">delete</i>
+    </button>
+  </span>
 </div>
 
 <div class="row">
