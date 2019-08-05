@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RoutesAliases} from 'src/app/common/RoutesAliases';
+import {RoutesAliases} from 'src/app/common/enums/RoutesAliases.enum';
 
 @Component({
   selector: 'app-auth-layout',
