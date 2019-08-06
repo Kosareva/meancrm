@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../core/auth/auth.service";
-import {User, UserCredentials} from "../../core/rest/model";
+import {AuthService} from "../../shared/services/auth.service";
+import {User, UserCredentials} from "../../shared/rest/model";
 import {Unsubscribable} from "../../common/types/Unsubscribable";
 import {Subject} from "rxjs";
 import {takeUntil} from "rxjs/operators";

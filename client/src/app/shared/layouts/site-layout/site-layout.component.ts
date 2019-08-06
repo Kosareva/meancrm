@@ -1,8 +1,8 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {routesAliases} from "../../../common/enums/routesAliases";
-import {AuthService} from "../../../core/auth/auth.service";
+import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
-import {MaterialService} from "../../../common/services/material.service";
+import {MaterialService} from "../../services/material.service";
 import {BaseComponent} from "../../../common/abstractions/BaseComponent.abstract";
 
 @Component({

@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../core/auth/auth.service";
-import {LoginResponse, UserCredentials} from "../../core/rest/model";
+import {AuthService} from "../../shared/services/auth.service";
+import {LoginResponse, UserCredentials} from "../../shared/rest/model";
 import {takeUntil} from "rxjs/operators";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {routesAliases} from "../../common/enums/routesAliases";
 import {activatedRouteQueryParams} from "../../common/constants/activatedRouteQueryParams";
-import {MaterialService} from "../../common/services/material.service";
+import {MaterialService} from "../../shared/services/material.service";
 import {BaseComponent} from "../../common/abstractions/BaseComponent.abstract";
 
 @Component({

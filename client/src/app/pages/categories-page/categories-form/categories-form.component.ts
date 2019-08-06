@@ -6,12 +6,12 @@ import {routesParams} from "../../../common/enums/routesParams";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CategoriesFormControls} from "./model/CategoriesFormControls";
 import {isFieldInvalid, displayFieldCss, isFieldHasError} from "../../../common/utils/Utils";
-import {CategoriesRestService} from "../../../core/rest/api/categories-rest.service";
+import {CategoriesRestService} from "../../../shared/rest/api/categories-rest.service";
 import {of} from "rxjs/internal/observable/of";
-import {MaterialService} from "../../../common/services/material.service";
+import {MaterialService} from "../../../shared/services/material.service";
 import {error} from "selenium-webdriver";
 import {HttpErrorResponse} from "@angular/common/http";
-import {Category} from "../../../core/rest/model/Category";
+import {Category} from "../../../shared/rest/model/Category";
 import {Observable} from "rxjs";
 import {routesAliases} from "../../../common/enums/routesAliases";
 

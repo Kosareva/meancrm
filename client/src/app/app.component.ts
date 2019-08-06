@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "./core/auth/auth.service";
+import {AuthService} from "./shared/services/auth.service";
 import {localStorageKeys} from "./common/enums/localStorageKeys";
 
 @Component({

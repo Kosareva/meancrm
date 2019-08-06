@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {PositionsRestService} from "../../../../core/rest/api/positions-rest.service";
-import {Position} from "../../../../core/rest/model/Position";
-import {MaterialInstance, MaterialService} from "../../../../common/services/material.service";
+import {PositionsRestService} from "../../../../shared/rest/api/positions-rest.service";
+import {Position} from "../../../../shared/rest/model/Position";
+import {MaterialInstance, MaterialService} from "../../../../shared/services/material.service";
 import {BaseComponent} from "../../../../common/abstractions/BaseComponent.abstract";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {PositionsFormControls} from "./model/PositionsFormControls";

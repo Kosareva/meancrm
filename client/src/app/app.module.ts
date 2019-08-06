@@ -9,7 +9,7 @@ import {SiteLayoutComponent} from './shared/layouts/site-layout/site-layout.comp
 import {RegistrationPageComponent} from './pages/registration-page/registration-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {TokenInterceptor} from "./common/interceptors/tocken.interceptor";
+import {TokenInterceptor} from "./common/interceptors/token.interceptor";
 import { OverviewPageComponent } from './pages/overview-page/overview-page.component';
 import { AnalyticsPageComponent } from './pages/analytics-page/analytics-page.component';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';

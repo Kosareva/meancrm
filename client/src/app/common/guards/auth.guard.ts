@@ -8,7 +8,7 @@ import {
 } from "@angular/router";
 import {Observable, of} from "rxjs";
 import {Injectable} from "@angular/core";
-import {AuthService} from "../../core/auth/auth.service";
+import {AuthService} from "../../shared/services/auth.service";
 import {routesAliases} from "../enums/routesAliases";
 import {activatedRouteQueryParams} from "../constants/activatedRouteQueryParams";
 
