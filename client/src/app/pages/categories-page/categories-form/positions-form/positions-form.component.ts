@@ -6,6 +6,7 @@ import {BaseComponent} from "../../../../common/abstractions/BaseComponent.abstr
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {PositionsFormControls} from "./model/PositionsFormControls";
 import {displayFieldCss, isFieldHasError, isFieldInvalid} from "../../../../common/utils/Utils";
+import {takeUntil} from "rxjs/operators";
 
 @Component({
   selector: 'app-positions-form',
@@ -40,6 +41,9 @@ export class PositionsFormComponent extends BaseComponent implements OnInit, Aft
 
     this.loading = true;
     this.positionsRestService.positionCollectionResourceGet(this.categoryId)
+      .pipe(
+        takeUntil(this.unsubscribe)
+      )
       .subscribe(positions => {
         this.positions = positions;
         this.loading = false;
@@ -73,6 +77,9 @@ export class PositionsFormComponent extends BaseComponent implements OnInit, Aft
     const decision = window.confirm(`Are you sure you want to delete ${position.name} ?`);
     if (decision) {
       this.positionsRestService.positionResourceDelete(position._id)
+        .pipe(
+          takeUntil(this.unsubscribe)
+        )
         .subscribe(
           resp => {
             const ind = this.positions.findIndex((pos) => position._id === pos._id);
@@ -116,6 +123,9 @@ export class PositionsFormComponent extends BaseComponent implements OnInit, Aft
       newPosition._id = this.positionId;
 
       this.positionsRestService.positionResourcePatch(newPosition)
+        .pipe(
+          takeUntil(this.unsubscribe)
+        )
         .subscribe(
           position => {
             MaterialService.toast('Position has been updated');
@@ -129,6 +139,9 @@ export class PositionsFormComponent extends BaseComponent implements OnInit, Aft
         );
     } else {
       this.positionsRestService.positionResourcePost(newPosition)
+        .pipe(
+          takeUntil(this.unsubscribe)
+        )
         .subscribe(
           position => {
             MaterialService.toast('Position has been created');

@@ -27,7 +27,8 @@ export class OrderService {
   }
 
   clear(): void {
-
+    this.list = [];
+    this.price = 0;
   }
 
   remove(orderPositionId: string): void {

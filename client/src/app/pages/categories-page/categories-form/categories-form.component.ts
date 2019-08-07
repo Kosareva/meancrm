@@ -50,6 +50,7 @@ export class CategoriesFormComponent extends BaseComponent implements OnInit {
 
     this.route.params
       .pipe(
+        takeUntil(this.unsubscribe),
         switchMap((params: Params) => {
           if (params[routesParams.ID]) {
             this.isNew = false;
@@ -78,6 +79,9 @@ export class CategoriesFormComponent extends BaseComponent implements OnInit {
     const decision = window.confirm(`Are you sure you want to remove category ${this.category.name}`);
     if (decision) {
       this.categoriesRestService.categoryResourceDelete(this.category._id)
+        .pipe(
+          takeUntil(this.unsubscribe)
+        )
         .subscribe(
           resp => MaterialService.toast(resp.message),
           e => MaterialService.toast(e.error.message),

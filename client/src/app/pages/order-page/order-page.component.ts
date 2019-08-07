@@ -21,6 +21,7 @@ export class OrderPageComponent extends BaseComponent implements OnInit, OnDestr
   isRoot: boolean;
   modal: MaterialInstance;
   @ViewChild('modal', {static: true}) modalRef: ElementRef;
+  pending = false;
 
   constructor(
     public order: OrderService,
@@ -65,7 +66,7 @@ export class OrderPageComponent extends BaseComponent implements OnInit, OnDestr
   }
 
   submit(): void {
-    this.modal.close();
+    this.pending = true;
     const order: Order = {
       list: this.order.list.map(item => {
         delete item._id;
@@ -73,14 +74,19 @@ export class OrderPageComponent extends BaseComponent implements OnInit, OnDestr
       })
     };
     this.ordersRestService.orderResourcePost(order)
+      .pipe(
+        takeUntil(this.unsubscribe)
+      )
       .subscribe(newOrder => {
           MaterialService.toast(`Order #${newOrder.order} created`);
+          this.order.clear();
         },
         e => {
           MaterialService.toast(e.error.message);
         },
         () => {
           this.modal.close();
+          this.pending = false;
         }
       );
   }
