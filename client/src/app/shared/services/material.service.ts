@@ -33,6 +33,10 @@ export class MaterialService {
     return M.Modal.init(elRef.nativeElement);
   }
 
+  static initTapTarget(ref: ElementRef): MaterialInstance {
+    return M.TapTarget.init(ref.nativeElement);
+  }
+
   static initTooltip(ref: ElementRef): MaterialInstance {
     return M.Tooltip.init(ref.nativeElement);
   }
