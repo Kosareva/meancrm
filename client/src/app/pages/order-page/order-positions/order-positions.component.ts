@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {BaseComponent} from "../../../common/abstractions/BaseComponent.abstract";
+import {BaseComponent} from "../../../shared/abstractions/BaseComponent.abstract";
 import {ActivatedRoute, Params} from "@angular/router";
 import {PositionsRestService} from "../../../shared/rest/api/positions-rest.service";
 import {Observable} from "rxjs";
 import {map, switchMap} from "rxjs/operators";
-import {routesParams} from "../../../common/enums/routesParams";
+import {RoutesParams} from "../../../shared/enums/RoutesParams";
 import {Position} from "../../../shared/rest/model/Position";
 import {OrderService} from "../order.service";
 import {MaterialService} from "../../../shared/services/material.service";
@@ -30,7 +30,7 @@ export class OrderPositionsComponent extends BaseComponent implements OnInit {
     this.positions$ = this.route.params
       .pipe(
         switchMap((params: Params) => {
-          return this.positionsRestService.positionCollectionResourceGet(params[routesParams.ID]);
+          return this.positionsRestService.positionCollectionResourceGet(params[RoutesParams.ID]);
         }),
         map((positions: Position[]) => {
           return positions.map(position => {

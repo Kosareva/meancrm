@@ -2,10 +2,10 @@ import {AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChil
 import {PositionsRestService} from "../../../../shared/rest/api/positions-rest.service";
 import {Position} from "../../../../shared/rest/model/Position";
 import {MaterialInstance, MaterialService} from "../../../../shared/services/material.service";
-import {BaseComponent} from "../../../../common/abstractions/BaseComponent.abstract";
+import {BaseComponent} from "../../../../shared/abstractions/BaseComponent.abstract";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {PositionsFormControls} from "./model/PositionsFormControls";
-import {displayFieldCss, isFieldHasError, isFieldInvalid} from "../../../../common/utils/Utils";
+import {displayFieldCss, isFieldHasError, isFieldInvalid} from "../../../../shared/utils/Utils";
 import {takeUntil} from "rxjs/operators";
 
 @Component({

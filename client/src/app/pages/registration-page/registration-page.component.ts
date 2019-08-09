@@ -2,13 +2,13 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../shared/services/auth.service";
 import {User, UserCredentials} from "../../shared/rest/model";
-import {Unsubscribable} from "../../common/types/Unsubscribable";
+import {Unsubscribable} from "../../shared/types/Unsubscribable";
 import {Subject} from "rxjs";
 import {takeUntil} from "rxjs/operators";
 import {Router} from '@angular/router';
-import {routesAliases} from "../../common/enums/routesAliases";
-import {activatedRouteQueryParams} from "../../common/constants/activatedRouteQueryParams";
-import {BaseComponent} from "../../common/abstractions/BaseComponent.abstract";
+import {RoutesAliases} from "../../shared/enums/RoutesAliases";
+import {activatedRouteQueryParams} from "../../shared/constants/activatedRouteQueryParams";
+import {BaseComponent} from "../../shared/abstractions/BaseComponent.abstract";
 
 @Component({
   selector: 'app-register-form',
@@ -47,9 +47,9 @@ export class RegistrationPageComponent extends BaseComponent implements OnInit, 
       .subscribe(
         (user: User) => {
           console.log('REGISTERED USER', user);
-          this.router.navigate([`/${routesAliases.LOGIN}`], {
+          this.router.navigate([`/${RoutesAliases.LOGIN}`], {
             queryParams: {
-              [activatedRouteQueryParams[routesAliases.LOGIN].REGISTERED]: true
+              [activatedRouteQueryParams[RoutesAliases.LOGIN].REGISTERED]: true
             }
           });
         },

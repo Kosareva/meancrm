@@ -3,7 +3,7 @@ import {Observable} from "rxjs";
 import {LoginResponse, User} from "../rest/model";
 import {AuthRestService} from "../rest/api";
 import {tap} from "rxjs/operators";
-import {localStorageKeys} from "../../common/enums/localStorageKeys";
+import {LocalStorageKeys} from "../enums/LocalStorageKeys";
 
 @Injectable({providedIn: "root"})
 export class AuthService {
@@ -20,7 +20,7 @@ export class AuthService {
       .pipe(
         tap(
           (loginResponse) => {
-            localStorage.setItem(localStorageKeys.AUTH_TOKEN, loginResponse.token);
+            localStorage.setItem(LocalStorageKeys.AUTH_TOKEN, loginResponse.token);
             this.setToken(loginResponse.token);
           }
         )

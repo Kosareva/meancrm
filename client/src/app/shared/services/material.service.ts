@@ -1,4 +1,5 @@
 import {ElementRef, Injectable} from "@angular/core";
+import {MaterialDatepicker} from "../types/MaterialDatepicker";
 
 declare var M: any;
 
@@ -20,8 +21,20 @@ export class MaterialService {
     M.FloatingActionButton.init(elRef.nativeElement);
   }
 
+  static initDatepicker(elRef: ElementRef, onClose: () => void): MaterialDatepicker {
+    return M.Datepicker.init(elRef.nativeElement, {
+      format: 'dd.mm.yyyy',
+      showClearBtn: true,
+      onClose
+    });
+  }
+
   static initModal(elRef: ElementRef): MaterialInstance {
     return M.Modal.init(elRef.nativeElement);
+  }
+
+  static initTooltip(ref: ElementRef): MaterialInstance {
+    return M.Tooltip.init(ref.nativeElement);
   }
 
   static updateTextInputs() {

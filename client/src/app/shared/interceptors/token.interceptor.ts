@@ -1,10 +1,10 @@
 import {Injectable} from "@angular/core";
 import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
-import {AuthService} from "../../shared/services/auth.service";
+import {AuthService} from "../services/auth.service";
 import {catchError} from "rxjs/operators";
 import {Router} from "@angular/router";
-import {routesAliases} from "../enums/routesAliases";
+import {RoutesAliases} from "../enums/RoutesAliases";
 import {activatedRouteQueryParams} from "../constants/activatedRouteQueryParams";
 
 @Injectable()
@@ -32,9 +32,9 @@ export class TokenInterceptor implements HttpInterceptor {
 
   private handleAuthError(e: HttpErrorResponse): Observable<any> {
     if (e.status === 401) {
-      this.router.navigate(['/', routesAliases.LOGIN], {
+      this.router.navigate(['/', RoutesAliases.LOGIN], {
         queryParams: {
-          [activatedRouteQueryParams[routesAliases.LOGIN].SESSION_FAILED]: true
+          [activatedRouteQueryParams[RoutesAliases.LOGIN].SESSION_FAILED]: true
         }
       });
     }

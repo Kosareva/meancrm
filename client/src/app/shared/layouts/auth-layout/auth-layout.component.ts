@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BaseComponent} from "../../../common/abstractions/BaseComponent.abstract";
+import {BaseComponent} from "../../abstractions/BaseComponent.abstract";
 
 @Component({
   selector: 'app-auth-layout',

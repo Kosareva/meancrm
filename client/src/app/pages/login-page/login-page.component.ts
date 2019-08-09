@@ -4,10 +4,10 @@ import {AuthService} from "../../shared/services/auth.service";
 import {LoginResponse, UserCredentials} from "../../shared/rest/model";
 import {takeUntil} from "rxjs/operators";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {routesAliases} from "../../common/enums/routesAliases";
-import {activatedRouteQueryParams} from "../../common/constants/activatedRouteQueryParams";
+import {RoutesAliases} from "../../shared/enums/RoutesAliases";
+import {activatedRouteQueryParams} from "../../shared/constants/activatedRouteQueryParams";
 import {MaterialService} from "../../shared/services/material.service";
-import {BaseComponent} from "../../common/abstractions/BaseComponent.abstract";
+import {BaseComponent} from "../../shared/abstractions/BaseComponent.abstract";
 
 @Component({
   selector: 'app-login-page',
@@ -42,11 +42,11 @@ export class LoginPageComponent extends BaseComponent implements OnInit {
         takeUntil(this.unsubscribe)
       )
       .subscribe((params: Params) => {
-        if (params[activatedRouteQueryParams[routesAliases.LOGIN].REGISTERED]) {
+        if (params[activatedRouteQueryParams[RoutesAliases.LOGIN].REGISTERED]) {
           MaterialService.toast('Now you can login');
-        } else if (params[activatedRouteQueryParams[routesAliases.LOGIN].ACCESS_DENIED]) {
+        } else if (params[activatedRouteQueryParams[RoutesAliases.LOGIN].ACCESS_DENIED]) {
           MaterialService.toast('You need to authorize');
-        } else if (params[activatedRouteQueryParams[routesAliases.LOGIN].SESSION_FAILED]) {
+        } else if (params[activatedRouteQueryParams[RoutesAliases.LOGIN].SESSION_FAILED]) {
           MaterialService.toast('Please, reauthorize');
         }
       })
@@ -59,7 +59,7 @@ export class LoginPageComponent extends BaseComponent implements OnInit {
         takeUntil(this.unsubscribe)
       )
       .subscribe((loginRto: LoginResponse) => {
-          this.router.navigate([`/${routesAliases.OVERVIEW}`])
+          this.router.navigate([`/${RoutesAliases.OVERVIEW}`])
             .catch((e) => {
               console.log(e);
               this.form.enable();

@@ -1,7 +1,7 @@
-import {routesAliases} from "../enums/routesAliases";
+import {RoutesAliases} from "../enums/RoutesAliases";
 
 export const activatedRouteQueryParams = {
-  [routesAliases.LOGIN]: {
+  [RoutesAliases.LOGIN]: {
     ACCESS_DENIED: 'accessDenied',
     REGISTERED: 'registered',
     SESSION_FAILED: 'sessionFailed',

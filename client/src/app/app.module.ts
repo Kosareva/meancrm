@@ -9,7 +9,7 @@ import {SiteLayoutComponent} from './shared/layouts/site-layout/site-layout.comp
 import {RegistrationPageComponent} from './pages/registration-page/registration-page.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {TokenInterceptor} from "./common/interceptors/token.interceptor";
+import {TokenInterceptor} from "./shared/interceptors/token.interceptor";
 import { OverviewPageComponent } from './pages/overview-page/overview-page.component';
 import { AnalyticsPageComponent } from './pages/analytics-page/analytics-page.component';
 import { HistoryPageComponent } from './pages/history-page/history-page.component';
@@ -21,6 +21,8 @@ import { PositionsFormComponent } from './pages/categories-page/categories-form/
 import { FieldErrorDisplayComponent } from './shared/ui-components/field-error-display/field-error-display.component';
 import { OrderCategoriesComponent } from './pages/order-page/order-categories/order-categories.component';
 import { OrderPositionsComponent } from './pages/order-page/order-positions/order-positions.component';
+import { HistoryListComponent } from './pages/history-page/history-list/history-list.component';
+import { HistoryFilterComponent } from './pages/history-page/history-filter/history-filter.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { OrderPositionsComponent } from './pages/order-page/order-positions/orde
     FieldErrorDisplayComponent,
     OrderCategoriesComponent,
     OrderPositionsComponent,
+    HistoryListComponent,
+    HistoryFilterComponent,
   ],
   imports: [
     BrowserModule,

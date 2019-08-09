@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {BaseComponent} from "../../../common/abstractions/BaseComponent.abstract";
+import {BaseComponent} from "../../../shared/abstractions/BaseComponent.abstract";
 import {ActivatedRoute, Params, Router} from "@angular/router";
 import {switchMap, take, takeUntil} from "rxjs/operators";
-import {routesParams} from "../../../common/enums/routesParams";
+import {RoutesParams} from "../../../shared/enums/RoutesParams";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CategoriesFormControls} from "./model/CategoriesFormControls";
-import {isFieldInvalid, displayFieldCss, isFieldHasError} from "../../../common/utils/Utils";
+import {isFieldInvalid, displayFieldCss, isFieldHasError} from "../../../shared/utils/Utils";
 import {CategoriesRestService} from "../../../shared/rest/api/categories-rest.service";
 import {of} from "rxjs/internal/observable/of";
 import {MaterialService} from "../../../shared/services/material.service";
@@ -13,7 +13,7 @@ import {error} from "selenium-webdriver";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Category} from "../../../shared/rest/model/Category";
 import {Observable} from "rxjs";
-import {routesAliases} from "../../../common/enums/routesAliases";
+import {RoutesAliases} from "../../../shared/enums/RoutesAliases";
 
 @Component({
   selector: 'app-categories-form',
@@ -52,9 +52,9 @@ export class CategoriesFormComponent extends BaseComponent implements OnInit {
       .pipe(
         takeUntil(this.unsubscribe),
         switchMap((params: Params) => {
-          if (params[routesParams.ID]) {
+          if (params[RoutesParams.ID]) {
             this.isNew = false;
-            return this.categoriesRestService.categoryResourceGet(params[routesParams.ID])
+            return this.categoriesRestService.categoryResourceGet(params[RoutesParams.ID])
           }
           return of(null);
         })
@@ -85,7 +85,7 @@ export class CategoriesFormComponent extends BaseComponent implements OnInit {
         .subscribe(
           resp => MaterialService.toast(resp.message),
           e => MaterialService.toast(e.error.message),
-          () => this.router.navigate(['/', routesAliases.CATEGORIES])
+          () => this.router.navigate(['/', RoutesAliases.CATEGORIES])
         );
     }
   }

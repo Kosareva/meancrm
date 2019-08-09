@@ -1,6 +1,6 @@
 import {ErrorHandler, Injectable} from "@angular/core";
 import {HttpErrorResponse} from "@angular/common/http";
-import {AppError} from '../../common/types/Error';
+import {AppError} from '../types/Error';
 
 @Injectable({providedIn: 'root'})
 export class AppErrorHandler implements ErrorHandler {

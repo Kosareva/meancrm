@@ -8,8 +8,8 @@ import {
 } from "@angular/router";
 import {Observable, of} from "rxjs";
 import {Injectable} from "@angular/core";
-import {AuthService} from "../../shared/services/auth.service";
-import {routesAliases} from "../enums/routesAliases";
+import {AuthService} from "../services/auth.service";
+import {RoutesAliases} from "../enums/RoutesAliases";
 import {activatedRouteQueryParams} from "../constants/activatedRouteQueryParams";
 
 @Injectable({providedIn: "root"})
@@ -25,9 +25,9 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     if (this.authService.isAuthenticated()) {
       return of(true);
     } else {
-      this.router.navigate([`/${routesAliases.LOGIN}`], {
+      this.router.navigate([`/${RoutesAliases.LOGIN}`], {
         queryParams: {
-          [activatedRouteQueryParams[routesAliases.LOGIN].ACCESS_DENIED]: true
+          [activatedRouteQueryParams[RoutesAliases.LOGIN].ACCESS_DENIED]: true
         }
       });
       return of(false);

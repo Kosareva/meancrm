@@ -1,4 +1,4 @@
-export enum routesAliases {
+export enum RoutesAliases {
   ANALYTICS = 'analytics',
   CATEGORIES = 'categories',
   HISTORY = 'history',

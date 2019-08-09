@@ -1,9 +1,9 @@
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {routesAliases} from "../../../common/enums/routesAliases";
+import {RoutesAliases} from "../../enums/RoutesAliases";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {MaterialService} from "../../services/material.service";
-import {BaseComponent} from "../../../common/abstractions/BaseComponent.abstract";
+import {BaseComponent} from "../../abstractions/BaseComponent.abstract";
 
 @Component({
   selector: 'app-site-layout',
@@ -16,23 +16,23 @@ export class SiteLayoutComponent extends BaseComponent implements AfterViewInit 
 
   links = [
     {
-      url: `/${routesAliases.OVERVIEW}`,
+      url: `/${RoutesAliases.OVERVIEW}`,
       name: 'Overview'
     },
     {
-      url: `/${routesAliases.ANALYTICS}`,
+      url: `/${RoutesAliases.ANALYTICS}`,
       name: 'Analytics'
     },
     {
-      url: `/${routesAliases.HISTORY}`,
+      url: `/${RoutesAliases.HISTORY}`,
       name: 'History'
     },
     {
-      url: `/${routesAliases.ORDER}`,
+      url: `/${RoutesAliases.ORDER}`,
       name: 'Create an order'
     },
     {
-      url: `/${routesAliases.CATEGORIES}`,
+      url: `/${RoutesAliases.CATEGORIES}`,
       name: 'Categories'
     },
   ];
@@ -51,7 +51,7 @@ export class SiteLayoutComponent extends BaseComponent implements AfterViewInit 
 
   logout(): void {
     this.authService.logout();
-    this.router.navigate(['/', routesAliases.LOGIN]);
+    this.router.navigate(['/', RoutesAliases.LOGIN]);
   }
 
 }

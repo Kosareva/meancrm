@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "./shared/services/auth.service";
-import {localStorageKeys} from "./common/enums/localStorageKeys";
+import {LocalStorageKeys} from "./shared/enums/LocalStorageKeys";
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const potentialToken = localStorage.getItem(localStorageKeys.AUTH_TOKEN);
+    const potentialToken = localStorage.getItem(LocalStorageKeys.AUTH_TOKEN);
     if (potentialToken) {
       this.authService.setToken(potentialToken);
     }

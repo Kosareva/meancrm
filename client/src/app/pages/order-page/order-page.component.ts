@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
-import {BaseComponent} from "../../common/abstractions/BaseComponent.abstract";
+import {BaseComponent} from "../../shared/abstractions/BaseComponent.abstract";
 import {NavigationEnd, Router} from "@angular/router";
-import {routesAliases} from "../../common/enums/routesAliases";
+import {RoutesAliases} from "../../shared/enums/RoutesAliases";
 import {map, takeUntil} from "rxjs/operators";
 import {filter} from "rxjs/internal/operators/filter";
 import {MaterialInstance, MaterialService} from "../../shared/services/material.service";
@@ -32,7 +32,7 @@ export class OrderPageComponent extends BaseComponent implements OnInit, OnDestr
   }
 
   ngOnInit() {
-    this.isRoot = this.router.url === `/${routesAliases.ORDER}`;
+    this.isRoot = this.router.url === `/${RoutesAliases.ORDER}`;
     this.router.events
       .pipe(
         takeUntil(this.unsubscribe),
@@ -40,7 +40,7 @@ export class OrderPageComponent extends BaseComponent implements OnInit, OnDestr
         map(ev => this.router.url)
       )
       .subscribe(url => {
-        this.isRoot = url === `/${routesAliases.ORDER}`;
+        this.isRoot = url === `/${RoutesAliases.ORDER}`;
       });
   }
 

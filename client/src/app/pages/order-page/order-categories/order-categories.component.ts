@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {BaseComponent} from "../../../common/abstractions/BaseComponent.abstract";
+import {BaseComponent} from "../../../shared/abstractions/BaseComponent.abstract";
 import {CategoriesRestService} from "../../../shared/rest/api/categories-rest.service";
 import {Observable} from "rxjs";
 import {Category} from "../../../shared/rest/model/Category";
