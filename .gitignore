@@ -45,5 +45,5 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# uploads
-/uploads
+# config keys
+config/keys.dev.js

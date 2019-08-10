@@ -18,7 +18,7 @@ module.exports = [[module.i, "/*!\r\n * Materialize v1.0.0 (http://materializecs
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = [[module.i, ".dn {\n  display: none;\n}\n\n.h-200 {\n  height: 200px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2Uta29zYXJldmEvdGVzdC9NRUFOQ1JNL2NsaWVudC9zcmMvc3R5bGVzLnNjc3MiLCJzcmMvc3R5bGVzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxhQUFBO0FDQ0Y7O0FERUE7RUFDRSxhQUFBO0FDQ0YiLCJmaWxlIjoic3JjL3N0eWxlcy5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmRuIHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuLmgtMjAwIHtcbiAgaGVpZ2h0OiAyMDBweDtcbn1cbiIsIi5kbiB7XG4gIGRpc3BsYXk6IG5vbmU7XG59XG5cbi5oLTIwMCB7XG4gIGhlaWdodDogMjAwcHg7XG59Il19 */", '', '']]
+module.exports = [[module.i, ".dn {\n  display: none;\n}\n\n.h-200 {\n  height: 200px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL2xpemF2ZXRhL215X3dvcmtzL21lYW5jcm0vY2xpZW50L3NyYy9zdHlsZXMuc2NzcyIsInNyYy9zdHlsZXMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQUE7QUNDRjs7QURFQTtFQUNFLGFBQUE7QUNDRiIsImZpbGUiOiJzcmMvc3R5bGVzLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZG4ge1xuICBkaXNwbGF5OiBub25lO1xufVxuXG4uaC0yMDAge1xuICBoZWlnaHQ6IDIwMHB4O1xufVxuIiwiLmRuIHtcbiAgZGlzcGxheTogbm9uZTtcbn1cblxuLmgtMjAwIHtcbiAgaGVpZ2h0OiAyMDBweDtcbn0iXX0= */", '', '']]
 
 /***/ }),
 
@@ -639,9 +639,9 @@ if(false) {}
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/e-kosareva/test/MEANCRM/client/node_modules/materialize-css/dist/css/materialize.min.css */"./node_modules/materialize-css/dist/css/materialize.min.css");
-__webpack_require__(/*! /home/e-kosareva/test/MEANCRM/client/theme/styles.min.css */"./theme/styles.min.css");
-module.exports = __webpack_require__(/*! /home/e-kosareva/test/MEANCRM/client/src/styles.scss */"./src/styles.scss");
+__webpack_require__(/*! /home/lizaveta/my_works/meancrm/client/node_modules/materialize-css/dist/css/materialize.min.css */"./node_modules/materialize-css/dist/css/materialize.min.css");
+__webpack_require__(/*! /home/lizaveta/my_works/meancrm/client/theme/styles.min.css */"./theme/styles.min.css");
+module.exports = __webpack_require__(/*! /home/lizaveta/my_works/meancrm/client/src/styles.scss */"./src/styles.scss");
 
 
 /***/ })
