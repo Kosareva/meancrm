@@ -13,7 +13,7 @@ const positionRoutes = require('./routes/position');
 const app = express();
 
 mongoose.connect(keys.mongoDbConnectionString)
-    .then(() => console.log('Mongose connected'))
+    .then(() => console.log('Mongoose connected'))
     .catch(e => console.log('Can\'t connect to mongoose', e));
 
 app.use(passport.initialize());
