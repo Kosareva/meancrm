@@ -13,7 +13,7 @@ const orderRoutes = require('./routes/order');
 const positionRoutes = require('./routes/position');
 const app = express();
 
-mongoose.connect(keys.mongoDbConnectionString)
+mongoose.connect(keys.mongoURI)
     .then(() => console.log('Mongoose connected'))
     .catch(e => console.log('Can\'t connect to mongoose', e));
 
