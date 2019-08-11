@@ -22,8 +22,8 @@ mongoose.connect(keys.mongoURI, {useNewUrlParser: true})
 app.use(passport.initialize());
 require('./middleware/passport')(passport);
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'});
-// app.use(morgan('combined', {stream: accessLogStream}));
-app.use(morgan('dev'));
+app.use(morgan('combined', {stream: accessLogStream}));
+// app.use(morgan('dev'));
 app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
