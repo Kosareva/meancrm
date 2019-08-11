@@ -1,4 +1,5 @@
-module.exports = {
-    mongoDbConnectionString: 'mongodb+srv://admin:admin@cluster0-8w844.mongodb.net/app?retryWrites=true',
-    jwt: 'dev-jwt'
-};
+if (process.env.NODE_ENV === 'production') {
+    module.exports = require('./keys.prod')
+} else {
+    module.exports = require('./keys.dev')
+}
