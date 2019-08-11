@@ -1,9 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const passport = require('passport');
-const path = require('path')
+const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const fs = require('fs');
 const morgan = require('morgan');
 const keys = require('./config/keys');
 const authRoutes = require('./routes/auth');
@@ -13,12 +14,15 @@ const orderRoutes = require('./routes/order');
 const positionRoutes = require('./routes/position');
 const app = express();
 
-mongoose.connect(keys.mongoURI)
+mongoose.set('useCreateIndex', true)
+mongoose.connect(keys.mongoURI, {useNewUrlParser: true})
     .then(() => console.log('Mongoose connected'))
     .catch(e => console.log('Can\'t connect to mongoose', e));
 
 app.use(passport.initialize());
 require('./middleware/passport')(passport);
+const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {flags: 'a'});
+// app.use(morgan('combined', {stream: accessLogStream}));
 app.use(morgan('dev'));
 app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({extended: true}));
